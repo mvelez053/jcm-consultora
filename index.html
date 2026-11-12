@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JCM Consultora · Internacionalización empresarial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0a1f44;--navy2:#12305f;--gold:#c9a24b;--sky:#7fb3e6;--bg:#fff;--surf:#f3f6fb;--text:#0a1f44;--mut:#52627f;--line:#dbe3f0;
+--serif:"Cormorant Garamond",Georgia,serif;--sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#091426;--surf:#0f1d36;--text:#e8eefb;--mut:#a3b3cf;--line:#223250;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#091426;--surf:#0f1d36;--text:#e8eefb;--mut:#a3b3cf;--line:#223250;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--navy);z-index:60}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(10,31,68,.92);backdrop-filter:blur(10px);color:#fff}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:var(--serif);font-size:1.5rem;font-weight:700;text-decoration:none;letter-spacing:.02em}
+.logo b{color:var(--gold)}
+nav ul{display:flex;gap:1.75rem;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none;font-size:.92rem;font-weight:500;opacity:.85;padding:.4rem 0;border-bottom:2px solid transparent;transition:.2s}
+nav a:hover,nav a.on{opacity:1;border-color:var(--gold)}
+#burger{display:none;background:none;border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:8px;padding:.45rem .7rem;font:inherit;cursor:pointer}
+.hero{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 85% 40%,var(--navy2),var(--navy) 60%);color:#fff;padding:clamp(3.5rem,9vw,7rem) 0}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
+.hero h1{font-size:clamp(3rem,7vw,5.4rem);font-weight:700}
+.hero .tag{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.2rem);color:var(--gold);margin:.6rem 0 1.2rem;font-style:italic}
+.hero p{max-width:46ch;color:#cfdbf0;margin:0 0 2rem}
+.btn{display:inline-block;background:var(--gold);color:#0a1f44;font-weight:700;text-decoration:none;padding:.9rem 1.6rem;border-radius:999px;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(201,162,75,.35)}
+.globe{width:100%;max-width:460px;margin-inline:auto;display:block}
+.arc{fill:none;stroke:var(--gold);stroke-width:1.6;stroke-dasharray:6 7;animation:flow 2.4s linear infinite}
+.arc.b{stroke:var(--sky);animation-duration:3.2s}
+@keyframes flow{to{stroke-dashoffset:-26}}
+.pulse{transform-origin:center;transform-box:fill-box;animation:pul 2.4s ease-out infinite}
+@keyframes pul{from{transform:scale(1);opacity:.8}to{transform:scale(3.4);opacity:0}}
+section{padding:clamp(3.5rem,8vw,6rem) 0}
+section.alt{background:var(--surf)}
+.head{max-width:60ch;margin-bottom:2.5rem}
+.head h2{font-size:clamp(2.2rem,4.5vw,3.2rem)}
+.head p{color:var(--mut);margin:.8rem 0 0}
+.rule{width:56px;height:3px;background:var(--gold);margin-top:1rem}
+.two{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+.box{background:var(--surf);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px;padding:1.6rem}
+section.alt .box{background:var(--bg)}
+.box h3{font-size:1.7rem;margin-bottom:.5rem}
+.box p{margin:0;color:var(--mut)}
+.team{margin-top:1.5rem;color:var(--mut);font-size:.95rem}
+.team b{color:var(--text)}
+.srv{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.srv div{background:var(--bg);border:1px solid var(--line);border-top:3px solid var(--navy2);border-radius:6px;padding:1.5rem;transition:border-color .2s,transform .2s}
+.srv div:hover{border-top-color:var(--gold);transform:translateY(-3px)}
+.srv svg{width:34px;height:34px;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-bottom:.8rem}
+.srv h3{font-size:1.4rem;line-height:1.2}
+.tl{position:relative;display:grid;gap:1.5rem;padding-left:3.2rem}
+.tl::before{content:"";position:absolute;left:1.05rem;top:.5rem;bottom:.5rem;width:2px;background:linear-gradient(var(--gold),var(--sky))}
+.card{position:relative;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:1.5rem 1.6rem}
+.card .n{position:absolute;left:-3.2rem;top:1.3rem;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--navy);color:var(--gold);border:2px solid var(--gold);display:grid;place-items:center;font-weight:700;font-size:.95rem}
+.card h3{font-size:1.65rem}
+.card p{color:var(--mut);margin:.5rem 0 1rem}
+.res{background:none;border:1px solid var(--gold);color:var(--text);border-radius:999px;padding:.5rem 1.1rem;font:500 .9rem var(--sans);cursor:pointer;transition:.2s}
+.res:hover,.res[aria-expanded="true"]{background:var(--gold);color:#0a1f44}
+.panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.panel.open{grid-template-rows:1fr}
+.panel>div{overflow:hidden}
+.in{margin-top:1rem;padding:1.1rem;background:var(--surf);border-radius:6px;font-size:.93rem}
+.chip{display:inline-block;font-size:.78rem;font-weight:700;padding:.15rem .6rem;border-radius:999px;background:rgba(127,179,230,.22);margin-bottom:.6rem}
+.in ul{margin:.3rem 0 0;padding-left:1.1rem;color:var(--mut)}
+.bar{display:grid;grid-template-columns:minmax(120px,190px) 1fr 3ch;gap:.6rem;align-items:center;margin:.35rem 0;font-size:.85rem}
+.bar i{display:block;height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.bar i::after{content:"";display:block;height:100%;width:0;background:var(--sky);transition:width .9s ease .1s}
+.panel.open .bar i::after{width:var(--w)}
+.bar.lo i::after{background:var(--gold)}
+.fd{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-top:.5rem}
+.fd h4{margin:0 0 .2rem;font-size:.95rem}
+.docs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.doc{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:1.5rem;display:flex;flex-direction:column;gap:.5rem}
+.doc h3{font-size:1.45rem;line-height:1.2}
+.doc p{margin:0;color:var(--mut);font-size:.93rem;flex:1}
+.doc small{color:var(--mut)}
+.dl{align-self:flex-start;background:var(--navy);color:#fff;border:1px solid var(--gold);border-radius:999px;padding:.5rem 1.1rem;font:500 .9rem var(--sans);cursor:pointer;transition:.2s;margin-top:.4rem}
+.dl:hover{background:var(--gold);color:#0a1f44}
+a.dl{display:inline-block;text-decoration:none}
+.files{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.9rem}
+#st{margin-top:1rem;color:var(--mut);font-size:.9rem;min-height:1.4em}
+.more{margin-top:1.5rem;color:var(--mut);font-size:.92rem}
+footer{background:var(--navy);color:#b8c6e0;padding:2.2rem 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+footer b{font-family:var(--serif);font-size:1.3rem;color:#fff}
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s,transform .7s}
+.rv.in-view{opacity:1;transform:none}
+.sub{margin:1.1rem 0 .2rem;font:600 1.3rem var(--serif)}
+.hd{margin:.5rem 0 .2rem;color:var(--mut);font-size:.9rem}
+.bm,.qd{display:grid;gap:.7rem;margin-top:.6rem}
+.bm{grid-template-columns:repeat(3,1fr)}
+.qd{grid-template-columns:1fr 1fr}
+.bm>div,.qd>div{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:.8rem .9rem}
+.bm h4,.qd h4{margin:0 0 .3rem;font-size:.95rem}
+.bm ul,.qd ul{margin:0;padding-left:1rem;color:var(--mut);font-size:.84rem}
+.bm li,.qd li{margin:.25rem 0}
+.qd .sw{border-top:3px solid var(--sky)}.qd .dw{border-top:3px solid var(--gold)}
+.tw{overflow-x:auto;margin-top:.6rem}
+table.vr{width:100%;border-collapse:collapse;font-size:.85rem;min-width:600px}
+.vr th,.vr td{padding:.55rem .5rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.vr th{font-size:.76rem;color:var(--mut);font-weight:700}
+.vr td.c,.vr th.c{text-align:center;white-space:nowrap}
+.vr td small{display:block;color:var(--mut);font-size:.76rem}
+.bd{display:inline-block;padding:.08rem .5rem;border-radius:999px;font-size:.74rem;font-weight:700;background:var(--line)}
+.bd.si{background:rgba(127,179,230,.35)}.bd.pa{background:rgba(201,162,75,.35)}
+.rs{font-weight:700}
+@media (max-width:860px){
+ #burger{display:block}
+ nav{position:absolute;left:0;right:0;top:64px;background:var(--navy);display:none;padding:1rem 1.25rem 1.4rem}
+ nav.open{display:block}
+ nav ul{flex-direction:column;gap:.9rem}
+ .hero .wrap,.two,.srv,.fd,.docs,.bm,.qd{grid-template-columns:1fr}
+ .globe{max-width:320px}
+ .tl{padding-left:2.7rem}.card .n{left:-2.7rem}.tl::before{left:.85rem}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+.refs{list-style:none;margin:0;padding:0;display:grid;gap:.9rem}
+.refs li{padding-left:2rem;text-indent:-2rem;color:var(--text);font-size:.95rem;line-height:1.6;overflow-wrap:anywhere}
+.refs a{color:var(--navy2);text-decoration:underline;text-underline-offset:2px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .refs a{color:var(--sky)}}
+:root[data-theme="dark"] .refs a{color:var(--sky)}
+#vw{position:fixed;inset:0;z-index:100;background:#0b1424;display:flex;flex-direction:column}
+#vw[hidden]{display:none}
+.vbar{display:flex;gap:.5rem;align-items:center;padding:.6rem 1rem;padding-top:calc(.6rem + env(safe-area-inset-top,0px));background:var(--navy);color:#fff;border-bottom:1px solid rgba(201,162,75,.5)}
+.vbar b{flex:1;min-width:0;font-size:.95rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vbar .dl{margin:0;white-space:nowrap}
+#vb{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:1rem;padding-bottom:calc(1rem + env(safe-area-inset-bottom,0px))}
+#vb img{display:block;width:100%;max-width:1000px;height:auto;margin:0 auto 1rem;background:#fff;box-shadow:0 4px 18px rgba(0,0,0,.4)}
+#vb.z img{width:260%;max-width:none}
+#vb p{color:#b8c6e0;text-align:center;font-size:.85rem;margin:0 0 .4rem}
+body.lock{overflow:hidden}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="#inicio">JCM <b>Consultora</b></a>
+<button id="burger" aria-label="Abrir menú" aria-expanded="false">Menú</button>
+<nav id="nav"><ul>
+<li><a href="#inicio">Inicio</a></li><li><a href="#nosotros">Nosotros</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#proceso">Metodología</a></li><li><a href="#documentos">Documentos</a></li><li><a href="#referencias">Referencias</a></li>
+</ul></nav>
+</div></header>
+
+<main>
+<section class="hero" id="inicio"><div class="wrap">
+<div>
+<h1>JCM Consultora</h1>
+<p class="tag">Conectamos empresas con oportunidades en el mundo</p>
+<p>Acompañamos a empresas colombianas a evaluar sus capacidades, elegir mercados y planear su entrada al exterior, con una metodología clara y verificable.</p>
+<a class="btn" href="#proceso">Conoce nuestra metodología</a>
+</div>
+<svg class="globe" viewBox="0 0 400 400" role="img" aria-label="Globo con rutas comerciales que parten de Colombia">
+<defs><radialGradient id="g" cx="40%" cy="35%"><stop offset="0" stop-color="#1c4a8a"/><stop offset="1" stop-color="#0a1f44"/></radialGradient></defs>
+<circle cx="200" cy="200" r="170" fill="url(#g)" stroke="#7fb3e6" stroke-opacity=".5"/>
+<g fill="none" stroke="#7fb3e6" stroke-opacity=".28">
+<ellipse cx="200" cy="200" rx="170" ry="60"/><ellipse cx="200" cy="200" rx="170" ry="120"/>
+<ellipse cx="200" cy="200" rx="60" ry="170"/><ellipse cx="200" cy="200" rx="120" ry="170"/><line x1="30" y1="200" x2="370" y2="200"/><line x1="200" y1="30" x2="200" y2="370"/></g>
+<path class="arc" d="M150 235 Q170 110 255 120"/>
+<path class="arc b" d="M150 235 Q250 190 310 250"/>
+<path class="arc" d="M150 235 Q110 120 105 150"/>
+<path class="arc b" d="M150 235 Q200 330 260 300"/>
+<g fill="#7fb3e6"><circle cx="255" cy="120" r="4"/><circle cx="310" cy="250" r="4"/><circle cx="105" cy="150" r="4"/><circle cx="260" cy="300" r="4"/></g>
+<circle class="pulse" cx="150" cy="235" r="6" fill="#c9a24b"/><circle cx="150" cy="235" r="6" fill="#c9a24b"/>
+</svg>
+</div></section>
+
+<section id="nosotros"><div class="wrap">
+<div class="head rv"><h2>Una firma dedicada a la expansión internacional</h2><div class="rule"></div>
+<p>JCM Consultora acompaña a las empresas en cada paso de su internacionalización, desde entender lo que ya tienen hasta decidir dónde y cómo entrar.</p></div>
+<div class="two rv">
+<div class="box"><h3>Misión</h3><p>Impulsar el crecimiento empresarial mediante estrategias de internacionalización, análisis de mercados y fortalecimiento de capacidades organizacionales.</p></div>
+<div class="box"><h3>Visión</h3><p>Ser una consultora reconocida por facilitar la expansión internacional de empresas colombianas.</p></div>
+</div>
+<p class="team rv"><b>Equipo consultor:</b> Juan Santiago Gómez Gonzales, Juan Esteban Arango Legro, María Paula Vélez y Jerónimo Silva Rodríguez.</p>
+<div class="box rv" style="margin-top:1.5rem"><h3>Diagrama de Gantt</h3><p>Cronograma del proyecto con las actividades, responsables y fechas de cada entrega.</p><p style="margin-top:1rem"><a class="btn" href="https://app.notion.com/p/2116d7502db4807a9ad6d296a94cbcff?v=2116d7502db4802a8df7000ceacddeee&amp;source=copy_link" target="_blank" rel="noopener noreferrer">Abrir diagrama de Gantt</a></p></div>
+</div></section>
+
+<section class="alt" id="servicios"><div class="wrap">
+<div class="head rv"><h2>Servicios</h2><div class="rule"></div><p>Atendemos a pequeñas, medianas y grandes empresas que quieren operar fuera de Colombia.</p></div>
+<div class="srv rv" id="srv"></div>
+</div></section>
+
+<section id="proceso"><div class="wrap">
+<div class="head rv"><h2>Nuestro proceso de internacionalización</h2><div class="rule"></div>
+<p>Siete entregas en orden cronológico. Abre los resultados de cada una para ver qué contiene y en qué estado está.</p></div>
+<div class="box rv" style="margin-bottom:1.6rem;border-left:4px solid var(--gold)"><h3>Pregunta del reto</h3><p style="font:600 1.3rem/1.45 var(--serif);color:inherit;margin:.3rem 0 .6rem">¿Qué herramientas estratégicas y metodológicas pueden implementarse en Seconecta S.A.S. para identificar oportunidades y establecer las bases de un proceso de internacionalización?</p><p>Las entregas de esta línea de tiempo son las herramientas con las que se responde: diagnóstico DPI+, modelo de negocio, DOFA, VRIO, matriz de brechas y lectura ESG.</p></div>
+<div class="tl" id="tl"></div>
+<p class="more rv">Las entregas siguientes se agregarán a esta línea de tiempo a medida que avance el proyecto.</p>
+</div></section>
+<section class="alt" id="documentos"><div class="wrap">
+<div class="head rv"><h2>Documentos del proyecto</h2><div class="rule"></div><p>Descarga los archivos que respaldan el trabajo con SECONECTA S.A.S.</p></div>
+<div class="docs rv" id="docs"></div>
+<p id="st" role="status" aria-live="polite"></p>
+</div></section>
+<section id="referencias"><div class="wrap">
+<div class="head rv"><h2>Referencias</h2><div class="rule"></div><p>Fuentes normativas, institucionales y herramientas consultadas para el desarrollo del proyecto.</p></div>
+<ul class="refs rv">
+<li>Asamblea Nacional de Panamá. (1959, 26 de enero). <i>Ley No. 15 de 26 de enero de 1959, por la cual se regula el ejercicio de las profesiones de ingeniería y arquitectura.</i> Gaceta Oficial No. 13,772. <a href="https://s3-legispan.asamblea.gob.pa/legispan/NORMAS/1950/1959/LEY/Administrador%20Legispan_13772_1959_2_28_ASAMBLEA%20NACIONAL_15.pdf" target="_blank" rel="noopener noreferrer">https://s3-legispan.asamblea.gob.pa/legispan/NORMAS/1950/1959/LEY/Administrador%20Legispan_13772_1959_2_28_ASAMBLEA%20NACIONAL_15.pdf</a></li>
+<li>Cámara Panameña de la Construcción. (s. f.). <i>Beneficios y servicios</i>. <a href="https://capac.org/servicios/" target="_blank" rel="noopener noreferrer">https://capac.org/servicios/</a></li>
+<li>Instituto Nacional de Estadística y Censo. (s. f.). <i>Industria: año 2025</i>. Contraloría General de la República de Panamá. <a href="https://www.inec.gob.pa/publicaciones/Default3.aspx?ID_CATEGORIA=4&amp;ID_PUBLICACION=1440&amp;ID_SUBCATEGORIA=15" target="_blank" rel="noopener noreferrer">https://www.inec.gob.pa/publicaciones/Default3.aspx?ID_CATEGORIA=4&amp;ID_PUBLICACION=1440&amp;ID_SUBCATEGORIA=15</a></li>
+<li>Junta Técnica de Ingeniería y Arquitectura. (s. f.). <i>Junta Técnica de Ingeniería y Arquitectura</i>. <a href="https://www.jtiapanama.org.pa/" target="_blank" rel="noopener noreferrer">https://www.jtiapanama.org.pa/</a></li>
+<li>Ministerio de Ambiente de Panamá. (2026, 29 de mayo). <i>Panamá actualiza lineamientos legales para la Evaluación de Impacto Ambiental en Panamá</i>. <a href="https://miambiente.gob.pa/panama-actualiza-lineamientos-legales-para-la-evaluacion-de-impacto-ambiental-en-panama/" target="_blank" rel="noopener noreferrer">https://miambiente.gob.pa/panama-actualiza-lineamientos-legales-para-la-evaluacion-de-impacto-ambiental-en-panama/</a></li>
+<li>Ministerio de Trabajo y Desarrollo Laboral. (s. f.). <i>Centro de capacitación de inspección</i>. <a href="https://www.mitradel.gob.pa/empleadores/centro-de-capacitacion-de-inspeccion/" target="_blank" rel="noopener noreferrer">https://www.mitradel.gob.pa/empleadores/centro-de-capacitacion-de-inspeccion/</a></li>
+<li>Panamá Digital. (s. f.). <i>Permiso de edificación y reedificación</i>. <a href="https://www.panamadigital.gob.pa/InformacionTramite/permiso-de-edificacion-y-reedificacion" target="_blank" rel="noopener noreferrer">https://www.panamadigital.gob.pa/InformacionTramite/permiso-de-edificacion-y-reedificacion</a></li>
+<li>Panamá Digital. (s. f.). <i>Inscripción como proveedor del Estado en el portal PanamaCompra</i>. <a href="https://www.panamadigital.gob.pa/InformacionTramite/inscripcion-como-proveedor-del-estado-en-el-portal-wwwpanamacompra-gob-pa" target="_blank" rel="noopener noreferrer">https://www.panamadigital.gob.pa/InformacionTramite/inscripcion-como-proveedor-del-estado-en-el-portal-wwwpanamacompra-gob-pa</a></li>
+<li>Superintendencia de Bancos de Panamá. (2000, 27 de julio). <i>Circular No. 035-2000</i>. <a href="https://www.superbancos.gob.pa/documents/laws_regulations/circulars/2000/circular_35-2000-en.pdf" target="_blank" rel="noopener noreferrer">https://www.superbancos.gob.pa/documents/laws_regulations/circulars/2000/circular_35-2000-en.pdf</a></li>
+<li>Entrevista directa con el propietario de Seconecta S.A.S., mediante la aplicación del cuestionario Diagnóstico de Potencialidades de Internacionalización (DPI+), realizada el 28 de octubre de 2026.</li>
+<li>Perplexity AI. (2026). <i>Perplexity</i> [Herramienta de búsqueda e inteligencia artificial]. <a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">https://www.perplexity.ai/</a></li>
+</ul>
+</div></section>
+</main>
+
+<div id="vw" hidden role="dialog" aria-modal="true" aria-labelledby="vt"><div class="vbar"><b id="vt"></b><button class="dl" id="vz" aria-pressed="false">Ampliar</button><button class="dl" id="vx">Cerrar</button></div><div id="vb"></div></div>
+<footer><div class="wrap"><div><b>JCM Consultora</b><br>Consultoría estratégica para la internacionalización empresarial.</div><div>CEIPA · Aldea Global 2 · Negocios Internacionales</div></div></footer>
+
+<script>
+var S=[
+['M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18M12 3a9 9 0 1 0 0 18a9 9 0 0 0 0-18','Diagnóstico de capacidades empresariales'],
+['M3 20V10M9 20V4M15 20v-7M21 20V8','Análisis estratégico del entorno internacional'],
+['M12 21s-7-6-7-11a7 7 0 0 1 14 0c0 5-7 11-7 11zM12 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4','Identificación y selección de mercados potenciales'],
+['M4 8h16M4 16h16M8 4v16M16 4v16','Evaluación de brechas para la internacionalización'],
+['M3 12h13M12 6l6 6-6 6M21 5v14','Diseño de estrategias de entrada a mercados extranjeros'],
+['M2 15l10 4 10-4M4 15V9h16v6M8 9V5h8v4','Acompañamiento en procesos de exportación de bienes y servicios']];
+document.getElementById('srv').innerHTML=S.map(function(s){return '<div><svg viewBox="0 0 24 24"><path d="'+s[0]+'"/></svg><h3>'+s[1]+'</h3></div>'}).join('');
+
+var DPI=[['Madurez digital',89],['Inteligencia de mercados',75],['Potencial del producto',69],['Direccionamiento estratégico',67],['Tecnología e innovación',61],['Capacidad financiera',55],['Marco legal y PI',42],['Talento humano',37],['Sostenibilidad',14]];
+function bars(){return DPI.map(function(d){return '<div class="bar'+(d[1]<35?' lo':'')+'"><span>'+d[0]+'</span><i style="--w:'+d[1]+'%"></i><b>'+d[1]+'%</b></div>'}).join('')}
+var E=[
+['Identificación y caracterización de la empresa','Presentación de SECONECTA S.A.S.: actividad económica, trayectoria, estructura empresarial y principales servicios. Identificación de su situación actual y de sus posibilidades de expansión internacional.',['Ficha de la empresa','Situación actual','Posibilidades de expansión'],'ficha'],
+['Capacidad productiva internacional','Evaluación de la capacidad de SECONECTA S.A.S. para ofrecer sus servicios en mercados extranjeros: capacidades técnicas, operativas y profesionales en ingeniería, infraestructura vial, acueductos, alcantarillados, infraestructura educativa y hospitalaria, consultoría y gestión tecnológica.',null,'dpi'],
+['BMC internacional','El Business Model Canvas Internacional presenta la propuesta de negocio de Seconecta S.A.S. para ingresar al mercado panameño. Define los clientes potenciales, la propuesta de valor, los recursos, las alianzas y las estrategias necesarias para ofrecer sus servicios especializados de construcción en Panamá.',null,'bmc'],
+['Matriz DOFA','Esta matriz analiza las debilidades, oportunidades, fortalezas y amenazas de Seconecta S.A.S. frente a su proceso de internacionalización hacia Panamá. Las fortalezas y debilidades se tomaron del DPI+, y las oportunidades y amenazas, del entorno del mercado panameño. A partir de ahí se plantean estrategias para aprovechar sus capacidades, reducir sus brechas y entrar al mercado como subcontratista junto a un aliado local.',null,'dofa'],
+['Matriz VRIO','Esta matriz evalúa los recursos y capacidades internas de Seconecta S.A.S. para saber si son valiosos, raros, difíciles de imitar y si la empresa está organizada para aprovecharlos. Con ella se identifica cuáles son una ventaja competitiva para competir en Panamá y cuáles necesitan fortalecerse antes de ingresar al mercado internacional.',null,'vrio'],
+['Matriz de brechas','Esta matriz identifica las principales fortalezas y brechas de Seconecta S.A.S. frente a su proceso de internacionalización hacia Panamá. Además, presenta acciones estratégicas para fortalecer sus capacidades y prepararse para ingresar al mercado internacional.',null,'brechas'],
+['Lectura Triple Cuenta ESG','Lectura del diagnóstico DPI+ desde la triple cuenta (económica, social y ambiental): qué tiene ya la empresa, qué le falta y cómo se conecta con las dimensiones del DPI+.',null,'esg']];
+var FI={acta:['Acta del kick-off (F-01)','Formato de arranque con los datos de la empresa, el producto y la pregunta del reto.','Word · 3,1 MB','AG2_F01_Acta_Kickoff_Seconecta.docx','application/vnd.openxmlformats-officedocument.wordprocessingml.document'],
+dpi:['Diagnóstico DPI+','Diagnóstico de potencialidades de internacionalización: cuestionario, ponderación y resultados por dimensión.','Excel · 44 KB','DPI_Plus_SECONECTA.xlsx','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'],
+acuerdo:['Acuerdo de equipo (Formato 4C)','Compromisos de funcionamiento y conducta del equipo consultor, con firmas del 27/10/2026.','PDF · 1,2 MB','Acuerdo_Equipo_4C.pdf','application/pdf'],
+bmc:['Modelo de negocio internacional (BMC)','Los nueve bloques del modelo de negocio de SECONECTA S.A.S. adaptados al mercado panameño.','Excel · 13 KB','BMC_Internacional_Seconecta.xlsx','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'],
+dofa:['DOFA de internacionalización','Matriz DOFA con estrategias cruzadas y hoja de fuentes y evidencia de cada factor.','Excel · 9 KB','DOFA_Seconecta_Panama.xlsx','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'],
+vrio:['Matriz VRIO','Nueve recursos y capacidades evaluados con evidencia del DPI+ y lectura de la matriz.','Excel · 9 KB','VRIO_Seconecta_Panama.xlsx','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'],
+brechas:['Matriz de brechas (F-03)','Brechas del DPI+ por dimensión, con acciones, plazos, recursos e impacto.','Excel · 12 KB','Matriz_Brechas_Seconecta.xlsx','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']};
+var FM={0:['acta'],1:['dpi'],2:['bmc'],3:['dofa'],4:['vrio'],5:['brechas']};
+var PG={"acta": [["acta-1.jpg", 1275, 1650], ["acta-2.jpg", 1275, 1650], ["acta-3.jpg", 1275, 1650]], "acuerdo": [["acuerdo-1.jpg", 1275, 1650], ["acuerdo-2.jpg", 1275, 1650], ["acuerdo-3.jpg", 1275, 1650], ["acuerdo-4.jpg", 1275, 1650], ["acuerdo-5.jpg", 1275, 1650]], "bmc": [["bmc-1.jpg", 3041, 2150]], "brechas": [["brechas-1.jpg", 1754, 1241], ["brechas-2.jpg", 1754, 1241], ["brechas-3.jpg", 1754, 1241]], "dofa": [["dofa-1.jpg", 1754, 1241], ["dofa-2.jpg", 1754, 1241], ["dofa-3.jpg", 1754, 1241]], "dpi": [["dpi-01.jpg", 1754, 1241], ["dpi-02.jpg", 1754, 1241], ["dpi-03.jpg", 1754, 1241], ["dpi-04.jpg", 1754, 1241], ["dpi-05.jpg", 1754, 1241], ["dpi-06.jpg", 1754, 1241], ["dpi-07.jpg", 1754, 1241], ["dpi-08.jpg", 1754, 1241], ["dpi-09.jpg", 1754, 1241], ["dpi-10.jpg", 1754, 1241], ["dpi-11.jpg", 1754, 1241], ["dpi-12.jpg", 1754, 1241], ["dpi-13.jpg", 1754, 1241], ["dpi-14.jpg", 1754, 1241]], "vrio": [["vrio-1.jpg", 1754, 1241], ["vrio-2.jpg", 1754, 1241]]};
+var vw=document.getElementById('vw'),vb=document.getElementById('vb'),vz=document.getElementById('vz'),vlast=null;
+function vopen(k,src){vlast=src;document.getElementById('vt').textContent=FI[k][0];vb.className='';vz.textContent='Ampliar';vz.setAttribute('aria-pressed','false');
+ vb.innerHTML=PG[k].map(function(p,i){return '<p>Página '+(i+1)+' de '+PG[k].length+'</p><img src="pages/'+p[0]+'" width="'+p[1]+'" height="'+p[2]+'" alt="'+FI[k][0]+', página '+(i+1)+'"'+(i>1?' loading="lazy"':'')+'>'}).join('');
+ vw.hidden=false;document.body.classList.add('lock');vb.scrollTop=0;document.getElementById('vx').focus()}
+function vclose(){vw.hidden=true;vb.innerHTML='';document.body.classList.remove('lock');if(vlast)vlast.focus()}
+document.getElementById('vx').addEventListener('click',vclose);
+vz.addEventListener('click',function(){var z=vb.classList.toggle('z');vz.textContent=z?'Ajustar':'Ampliar';vz.setAttribute('aria-pressed',z)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!vw.hidden)vclose()});
+document.addEventListener('click',function(ev){var b=ev.target.closest('[data-v]');if(b)vopen(b.dataset.v,b)});
+function btn(k){var f=FI[k][3],pdf=f.replace(/\.[a-z]+$/,'.pdf'),ext=f.split('.').pop();return '<div class="files"><button class="dl" data-v="'+k+'">Ver documento</button><a class="dl" href="docs/'+f+'" download>Descargar '+ext+'</a>'+(ext==='pdf'?'':'<a class="dl" href="docs/'+pdf+'" download>Descargar PDF</a>')+'</div>'}
+document.getElementById('docs').innerHTML=Object.keys(FI).map(function(k){return '<div class="doc"><h3>'+FI[k][0]+'</h3><p>'+FI[k][1]+'</p><small>'+FI[k][2]+' · '+PG[k].length+(PG[k].length>1?' páginas':' página')+'</small>'+btn(k)+'</div>'}).join('');
+if(window.claude&&typeof window.claude.use==='function'){window.claude.use('downloads').then(function(d){if(d)[].forEach.call(document.querySelectorAll('.orig'),function(x){x.hidden=false})}).catch(function(){})}
+document.addEventListener('click',function(ev){var b=ev.target.closest('[data-f]');if(!b)return;var k=b.dataset.f,st=document.getElementById('st');
+ st.textContent='Preparando: '+FI[k][3];var pdf=/\.pdf$/.test(FI[k][3]);fetch('docs/'+(pdf?FI[k][3]:k+'.json')).then(function(r){if(!r.ok)throw 0;return pdf?r.blob():r.json().then(function(j){var bin=atob(j.b64),u=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return u})}).then(function(b0){
+ var blob=new Blob([b0],{type:FI[k][4]});
+ var local=function(){try{var url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=FI[k][3];a.style.display='none';document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(url)},10000);st.textContent='Descargando: '+FI[k][3]}catch(e){st.textContent='No se pudo guardar el archivo. Intenta de nuevo.'}};
+ if(window.claude&&typeof window.claude.use==='function'){
+  window.claude.use('downloads').then(function(d){if(!d){local();return}
+   return d.save({filename:FI[k][3],data:blob}).then(function(){st.textContent='Archivo guardado: '+FI[k][3]},function(e){if(e&&e.code==='declined')st.textContent='Descarga cancelada.';else local()})
+  }).catch(function(){local()})
+ }else local()
+ }).catch(function(){st.textContent='No se pudo preparar el archivo.'})});
+function ul(a){return '<ul>'+a.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'}
+function blk(t,a,c){return '<div'+(c?' class="'+c+'"':'')+'><h4>'+t+'</h4>'+ul(a)+'</div>'}
+var PB={};
+PB.dpi=function(){return '<span class="chip">Avance preliminar · diagnóstico DPI+</span><p style="margin:0 0 .6rem">Nivel global de preparación: <b>54,7 %</b> (en desarrollo). Logro por dimensión:</p>'+bars()+'<p style="margin:.7rem 0 0;color:var(--mut)">Exportación de servicios alcanza 81 %, mientras que exportación de bienes llega solo al 10 %.</p>'};
+PB.ficha=function(){
+ return '<span class="chip">Resultados · Acta de kick-off F-01</span><div class="bm">'+
+ blk('Datos de la empresa',['<b>Razón social:</b> Seconecta S.A.S.','<b>NIT:</b> 9016396484','<b>Sector:</b> Construcción · CIIU 4390','<b>Ciudad:</b> Medellín, Antioquia','<b>Tipo de reto:</b> Empresa real','<b>Kick-off:</b> 27/10/2026'])+
+ blk('Producto delimitado',['Otras actividades especializadas para la construcción de edificios y obras de ingeniería civil','Cimentación e hincadura de pilotes','Aislamiento contra agua y humedad; deshumidificación de edificios','Profundización de pozos','Levantamiento y curvado de acero; mampostería de ladrillo y piedra','Techos residenciales, andamios y plataformas de trabajo','Chimeneas y hornos industriales; trabajos en altura y de difícil acceso'])+
+ blk('Capacidad productiva para exportación',['Convertir oportunidades en proyectos de ingeniería estructurados, contratados, ejecutados y entregados','Respaldo técnico, administrativo, financiero y operativo','Gestión de proyectos de infraestructura de distintas escalas y articulación de equipos especializados','Atención a entidades territoriales y empresas de servicios públicos'])+
+ blk('Ventaja competitiva verificable',['Experiencia en servicios públicos: estudios y diseños para optimizar acueductos rurales en Caracolí, Antioquia (contrato 2025-178 con Emduce, La Ceja); falta anexar actas y certificaciones de cierre','Estructuración de proyectos: diagnóstico, diseños, presupuestos, estructuración financiera, gestión contractual y seguimiento de obra','Articulación empresarial: participación del 10,5 % en Suma 360 S.A.S. E.S.P., antecedente que no es experiencia contractual propia','Diversificación: consultoría, gestión de proyectos, servicios públicos, tecnología y soluciones ambientales'])+
+ '</div>'};
+PB.brechas=function(){
+ var R=[['Capacidad productiva','Potencial del servicio en 68,7 %, pero Talento Humano en 37,3 %. Falta verificar la capacidad de ejecución de cada servicio (cimentaciones, impermeabilización, acero, mampostería, andamios, trabajo en altura), el personal, los equipos y las certificaciones.','Plan de capacidad operativa para Panamá: perfiles y competencias, capacitación en obra y seguridad, procedimientos de calidad y verificación de certificaciones.','3–6 meses, antes del primer contrato y durante un piloto','Alto'],
+ ['Capacidad financiera','55,3 % (en desarrollo). Sin estados financieros auditados, sin financiación para exportación y sin seguro de crédito ni herramientas formales de riesgo.','Estados financieros revisados o auditados, flujo de caja por proyecto con escenarios de anticipos y retrasos, financiación exportadora, seguros, garantías y cobertura cambiaria.','2–4 meses','Alto'],
+ ['Capacidad comercial','Inteligencia de mercados 75,4 %, direccionamiento 66,7 % y exportación de servicios 80,9 %. Brechas puntuales: sin herramientas de inteligencia comercial, sin aprovechar acuerdos comerciales, sin cargo dedicado ni acuerdos de representación (alianzas en 50 %).','Plan comercial para Panamá: validar segmentos B2B, competidores y precios, asignar un responsable comercial internacional y formalizar alianzas o subcontratos con empresas locales.','3–6 meses','Medio'],
+ ['Capacidad logística','El DPI+ no mide la logística de obra. Falta un plan operativo para Panamá: movilización de personal y equipos, compras locales, transporte, alojamiento y acceso a las obras.','Plan logístico por servicio: necesidades de transporte, proveedores locales, alquiler de equipos especializados, tiempos de entrega y alternativas de suministro.','1–3 meses, validado con visitas o un piloto','Alto'],
+ ['Sostenibilidad y ESG','14,3 % (inicial), la brecha más crítica. Sin huella de carbono, plan de RSE, reportes, metas ODS ni evaluación de proveedores; solo existe una política de equidad de género.','Plan de gestión ambiental: residuos de construcción, consumo de agua y energía, emisiones, polvo y ruido, criterios ambientales para proveedores e indicadores de seguimiento.','6–12 meses','Alto'],
+ ['Normativa y regulación','Marco legal y PI en 42,1 %. Sin asesoría legal en comercio internacional, marca internacional, compliance y anticorrupción, ni protección de datos; poco conocimiento de resolución de disputas.','Verificar con asesoría jurídica y técnica local los requisitos de idoneidad, permisos, seguridad laboral, obligaciones ambientales y responsabilidades contractuales de cada actividad en Panamá.','2–4 meses antes de contratar y actualización durante la operación','Alto']];
+ return '<span class="chip">Resultados · Formato F-03</span><p class="hd">SECONECTA S.A.S. · Servicios especializados para la construcción de edificios y obras de ingeniería civil. Los recursos estimados de cada acción están en el archivo Excel.</p><div class="tw"><table class="vr" style="min-width:760px"><thead><tr><th>Dimensión del DPI+</th><th>Brecha identificada</th><th>Acción para cerrarla</th><th>Tiempo</th><th class="c">Impacto</th></tr></thead><tbody>'+
+ R.map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td><td class="c"><span class="bd '+(r[4]==='Alto'?'pa':'si')+'">'+r[4]+'</span></td></tr>'}).join('')+'</tbody></table></div><p style="margin:.8rem 0 0;color:var(--mut)">Cinco de las seis brechas son de impacto alto. Son las dimensiones que más deben pesar al elegir el mercado de entrada.</p>'};
+PB.bmc=function(){
+ return '<span class="chip">Resultados · TA1-A</span><p class="hd">SECONECTA S.A.S. · Prestación de servicios especializados para la construcción de edificios y obras de ingeniería civil · Mercado de referencia: sector de construcción y obras de ingeniería civil de Panamá, con enfoque inicial en Ciudad de Panamá y su área metropolitana.</p><div class="bm">'+
+ blk('Segmento de clientes',['Constructoras y contratistas generales con proyectos residenciales, comerciales e institucionales que subcontratan actividades especializadas','Desarrolladores inmobiliarios de edificios, apartamentos y proyectos comerciales','Contratistas de infraestructura y servicios públicos: cimentaciones, pozos y otras obras civiles','Empresas industriales: chimeneas, hornos, estructuras metálicas y trabajos en lugares de difícil acceso','Decisores: gerentes de proyecto, directores de construcción, ingenieros de obra y gerentes de compras'])+
+ blk('Propuesta de valor',['Portafolio especializado: cimentaciones, impermeabilización, mampostería, acero, techos, andamios y trabajos en altura','Estructuración de proyectos: diagnósticos, estudios, diseños, presupuestos y análisis de precios unitarios','Gestión integral, desde la identificación de necesidades hasta la ejecución y el seguimiento de la obra','Herramientas tecnológicas para planear, coordinar y hacer seguimiento','Soluciones adaptadas a los requerimientos y presupuesto de cada cliente','Posicionamiento: aliado especializado que complementa las capacidades técnicas de constructoras y contratistas'])+
+ blk('Canales',['Contacto comercial directo con representantes y reuniones empresariales en Panamá','Canales digitales: web corporativa, portafolio digital, LinkedIn y correo empresarial','Ferias y eventos del sector de construcción, ingeniería civil e infraestructura','Alianzas con constructoras, contratistas y profesionales locales','Visitas técnicas a obra para evaluar necesidades y cotizar','Prestación del servicio directamente en las obras de los clientes'])+
+ blk('Relación con clientes',['Atención directa y personalizada con representantes comerciales','Reuniones presenciales y visitas técnicas a las obras','Asesoría técnica, cotizaciones y propuestas de ejecución','Comunicación continua por correo, llamadas y videollamadas','Informes periódicos de avance, calidad y cumplimiento de tiempos','Seguimiento posterior a la entrega para medir satisfacción y generar nuevos contratos'])+
+ blk('Fuentes de ingreso',['Contratos por servicios especializados (cimentaciones, pilotes, impermeabilización, mampostería, acero, techos, andamios)','Cobro por cantidades de obra: m², m³, metros lineales o unidades','Contratos por etapas de proyecto','Estructuración y apoyo técnico cuando se contratan por separado','Precios: cotización personalizada según complejidad, mano de obra, materiales, maquinaria, duración y logística','Moneda: dólares estadounidenses (USD)','Pagos: transferencias, anticipos, pagos parciales por avance y pago final contra aceptación','Margen: se calcula en cada contrato; el volumen depende de los contratos obtenidos y la capacidad operativa'])+
+ blk('Recursos clave',['Humanos: ingenieros civiles, arquitectos, supervisores, personal especializado, equipo administrativo y comercial, y personal capacitado en seguridad laboral','Físicos: herramientas y equipos de cimentación, andamios y protección contra caídas, maquinaria propia o alquilada y equipos de medición','Tecnológicos e intelectuales: experiencia en presupuestación y gestión, herramientas digitales y metodologías de calidad','Financieros: capital de trabajo, líneas de crédito, seguros, garantías y asesoría legal','Por desarrollar: capacitación en requisitos de Panamá, sostenibilidad y gestión ambiental, asesoría regulatoria y planeación financiera con gestión de riesgos'])+
+ blk('Actividades clave',['Identificar oportunidades comerciales en Panamá','Diagnósticos técnicos, estudios, diseños, presupuestos y propuestas','Gestionar contratos, requisitos legales, permisos y normas técnicas','Coordinar compra o alquiler de materiales, maquinaria y equipos','Ejecutar los servicios contratados según la capacidad técnica disponible','Supervisar calidad, seguridad y cumplimiento de tiempos','Capacitar al personal en normas técnicas, seguridad y requisitos de Panamá','Implementar prácticas de sostenibilidad y gestión de residuos','Seguimiento financiero y operativo de los contratos internacionales'])+
+ blk('Socios clave',['Constructoras y contratistas panameños que faciliten el acceso a proyectos y subcontratos','Proveedores locales de materiales, acero e impermeabilizantes','Empresas de alquiler de maquinaria para cimentaciones, pilotes, pozos y trabajos en altura','Proveedores de andamios, plataformas y equipos de protección personal','Ingenieros, arquitectos y profesionales técnicos locales','Asesoría legal, contable y tributaria','Empresas de gestión ambiental y seguridad laboral'])+
+ blk('Estructura de costos',['Personal: contratación, capacitación y desplazamiento','Materiales: acero, cemento, ladrillos e impermeabilizantes','Maquinaria y equipos: compra o alquiler','Seguridad laboral: protección personal, contra caídas y andamios','Logística: transporte internacional, alojamiento, movilidad local y traslado de equipos','Legales y administrativos: asesoría, contratos, permisos y registros','Comerciales: portafolio, visitas, ferias y representación','Ambientales: residuos y prácticas sostenibles','Financieros: seguros, garantías, comisiones y capital de trabajo'])+
+ '</div><p style="margin:.8rem 0 0;color:var(--mut);font-size:.88rem">Cada bloque responde al mercado externo, no al negocio doméstico. Las fortalezas del DPI+ se reflejan en la propuesta de valor y las brechas aparecen como actividades o recursos por desarrollar.</p>'};
+PB.dofa=function(){
+ return '<span class="chip">Resultados · TA1-B</span><p class="hd">Fortalezas y debilidades salen del DPI+ (54,7 %, en desarrollo). Oportunidades y amenazas vienen del entorno de Panamá; las fuentes están en la hoja de evidencia del archivo.</p><div class="qd">'+
+ blk('Fortalezas',['Madurez digital avanzada (88,9 %): ERP, CRM, analítica, ciberseguridad y pagos internacionales','Exportación de servicios avanzada (80,9 %): ya exporta de forma transfronteriza y está registrada como exportadora','Inteligencia de mercados madura (75,4 %): investigación formal, competidores identificados y piloto internacional'],'sw')+
+ blk('Debilidades',['Sostenibilidad inicial (14,3 %): sin huella de carbono, RSE ni metas ODS','Marco legal y PI en desarrollo (42,1 %): sin marca fuera de Colombia ni compliance','Brechas para competir formalmente: modos de entrada 40,5 % y capacidad financiera 55,3 %'],'dw')+
+ blk('Oportunidades',['O1. Cartera pública: Río Indio (US$1.500–1.600 M), posibles licitaciones de la ACP (más de US$11.200 M) y plan vial del MOP (más de US$1.220 M)','O2. Línea 3 del Metro y Cuarto Puente demandan servicios especializados y subcontratistas','O3. Acuerdo de alcance parcial con Colombia desde 1993 y TLC de 2013 por activarse'],'sw')+
+ blk('Amenazas',['A1. Consorcios globales: el Cuarto Puente lo ejecutan CCCC y CHEC','A2. Mínimo 90 % de trabajadores panameños (Art. 17 del Código de Trabajo)','A3. Sin TLC con trato nacional en compras públicas; exige sucursal local y licencia JTIA','A4. Retrasos y sobrecostos: la Línea 3 pasó de 2025 a 2027–2028'],'dw')+
+ '</div><h4 class="sub">Estrategias cruzadas</h4><div class="qd">'+
+ blk('FO · Fortalezas con oportunidades',['Ser subcontratista de los consorcios de Río Indio, ACP y MOP: mapear 10 contratistas y reunirse con al menos 5 en 6 meses','Modelo híbrido: ingeniería y gestión remotas desde Colombia, con mínima presencia en obra','Monitorear la activación del TLC Colombia–Panamá'])+
+ blk('FA · Fortalezas frente a amenazas',['No competir por obras completas: nicho de servicios especializados con referencias del piloto','Ingeniería desde Colombia y mano de obra local para respetar el 90 % de personal panameño','Controlar plazos, costos y cobros con ERP y analítica'])+
+ blk('DO · Debilidades con oportunidades',['Registrar la marca en Panamá y contratar asesoría legal local antes de ofertar (meta: 6 meses)','Medir huella de carbono, definir política de RSE con metas ODS y publicar un primer reporte','Obtener estados financieros auditados y las certificaciones que pidan los consorcios'])+
+ blk('DA · Debilidades frente a amenazas',['Aliarse con una constructora panameña con licencia JTIA y evitar sucursal propia en la primera fase','Asesor laboral y legal en Panamá para cumplir el 90 % y la Ley 22 de 2006','Marco básico de gestión de riesgos y seguro de crédito a la exportación'])+
+ '</div>'};
+PB.vrio=function(){
+ var R=[['Infraestructura digital integrada','Tecnológico','Sí','No','No','Sí','Paridad'],
+ ['Experiencia en exportación de servicios transfronterizos','Capacidad','Sí','Parcial','Parcial','Sí','Ventaja temporal'],
+ ['Inteligencia de mercados y red de contactos','Capacidad','Sí','Parcial','Parcial','Parcial','Ventaja temporal parcialmente aprovechada'],
+ ['I+D y desarrollos propios con know-how protegido','Recurso intangible','Sí','Parcial','Parcial','Sí','Ventaja temporal'],
+ ['Alta dirección con experiencia internacional y plan con KPIs','Humano y organizacional','Sí','No','Parcial','Parcial','Paridad'],
+ ['Portafolio de servicios especializados y adaptable','Recurso (oferta)','Sí','Parcial','Parcial','Parcial','Ventaja temporal parcial'],
+ ['Solidez financiera operativa','Financiero','Sí','No','No','Parcial','Paridad'],
+ ['Talento humano con segunda lengua y base técnica','Humano','Sí','No','No','No','Desventaja'],
+ ['Capacidad legal, de cumplimiento y sostenibilidad (ESG)','Organizacional','Sí','No','No','No','Desventaja']];
+ function bd(v){return '<td class="c"><span class="bd '+(v==='Sí'?'si':v==='Parcial'?'pa':'')+'">'+v+'</span></td>'}
+ return '<span class="chip">Resultados · TA1-C</span><p class="hd">¿El recurso es Valioso para el cliente en Panamá, Raro frente a los competidores, difícil de Imitar y la Organización está preparada para aprovecharlo? Evidencia: DPI+ y DOFA de SECONECTA S.A.S.</p><div class="tw"><table class="vr"><thead><tr><th>Recurso o capacidad</th><th class="c">V</th><th class="c">R</th><th class="c">I</th><th class="c">O</th><th>Resultado</th></tr></thead><tbody>'+
+ R.map(function(r){return '<tr><td>'+r[0]+'<small>'+r[1]+'</small></td>'+bd(r[2])+bd(r[3])+bd(r[4])+bd(r[5])+'<td class="rs">'+r[6]+'</td></tr>'}).join('')+'</tbody></table></div>'+
+ '<h4 class="sub">Lectura de la matriz</h4><p style="margin:.2rem 0 0;color:var(--mut)">Ningún recurso alcanza una ventaja competitiva sostenida. Hay ventaja temporal en la exportación de servicios (80,9 %) y en el I+D propio; paridad en lo digital, la dirección estratégica y las finanzas; y desventaja en talento humano (37,3 %) y en lo legal y ESG (42,1 % y 14,3 %).</p><p style="margin:.6rem 0 0;color:var(--mut)">Conclusión: entrar a Panamá con un modo de bajo riesgo, con servicios transfronterizos y subcontratación con un aliado panameño, protegiendo el know-how por contrato. Antes hay que cerrar las brechas de certificaciones, auditoría, compliance y ESG, que son requisitos de entrada y no se resuelven con tecnología.</p>'};
+PB.esg=function(){
+ var T=[['Ambiental','S1. Mide su huella de carbono','No','0'],['Ambiental','S1.1. Emisiones frente al estándar del sector','No realicé medición','0'],['Ambiental','S6. Producto/servicio con enfoque sostenible explícito','No','0'],['Social','S2. Política formal de equidad de género','Sí','1'],['Social','S2.1. % de mujeres en el total de empleados','26 % a 40 %','0,5'],['Social','S2.2. % de mujeres en cargos directivos','21 % a 40 %','0,5'],['Social','S3. Planes de RSE','No','0'],['Social','S7. Gestión de proveedores con criterios sostenibles','No','0'],['Económica / gobierno','S5. Reporte de gestión económico, social y ambiental','No','0'],['Transversal','S4. Adhesión a iniciativas globales (Pacto Mundial, ODS)','No','0'],['Transversal','S8. Reporta bajo GRI, SASB o TCFD','No','0'],['Transversal','S9. Metas ODS con indicadores y seguimiento','No','0']];
+ var C=[['Económica (incluye gobierno)','Ingresos USD 500K–2M, crecimiento 16–30 %, EBITDA positivo 2 años, crédito activo, coberturas cambiarias','Estados financieros auditados, reporte de gestión integrado, compliance, gestión de riesgos, financiación para exportar','Capacidad Financiera 55,3 %; Marco Legal y PI 42,1 %; Sostenibilidad (S5)'],['Social','Política de equidad de género, 26–40 % mujeres en planta y 21–40 % en dirección, 51–75 % del personal bilingüe','RSE, proveedores con criterios sostenibles, adhesión a iniciativas globales, desarrollo y retención de talento','Sostenibilidad (S2, S3, S7); Talento Humano 37,3 %'],['Ambiental','Nada medido todavía; sí tiene herramientas digitales para empezar a medir','Huella de carbono, enfoque sostenible del servicio, metas ODS, reporte bajo estándar internacional','Sostenibilidad (S1, S1.1, S6, S8, S9); Madurez Digital 88,9 % como apoyo']];
+ var P=function(t){return '<p style="margin:.6rem 0 0;color:var(--mut)">'+t+'</p>'};
+ return '<span class="chip">Resultados · Lectura ESG</span><div class="tw"><table class="vr" style="min-width:640px"><thead><tr><th>Cuenta</th><th>Pregunta DPI</th><th>Respuesta</th><th class="c">Puntaje</th></tr></thead><tbody>'+
+ T.map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td><td class="c">'+r[3]+'</td></tr>'}).join('')+'</tbody></table></div>'+
+ '<h4 class="sub">Económico</h4>'+
+ P('La empresa tiene una facturación entre 500.000 y 2 millones al año, tiene un crecimiento del 16 % y 30 % en los últimos tres años y lleva dos años seguidos con EBITDA positivo, además tiene líneas de crédito activas, la empresa reporta un capital de trabajo suficiente para operar afuera y ya maneja coberturas cambiarias, para la empresa esto es un aspecto positivo.')+
+ P('El problema es que casi nada de eso es verificable por un tercero. No tiene estados financieros auditados, no ha usado financiación para exportaciones, no ha recibido capital ni fondos de cooperación del exterior y no tiene seguro de crédito a la exportación. Por esto la capacidad financiera queda en 55,3 %, En Desarrollo, a pesar de la rentabilidad. Tampoco la empresa reporta una gestión que integre lo económico con lo social.')+
+ P('Aquí también entra la parte de gobierno corporativo, que es la parte gubernamental del proyecto y que en la triple cuenta suele quedar dentro de lo económico. La empresa no tiene programa de corrupción, no cumple normas internacionales de protección de datos como GDPR y no cuenta con un marco formal de gestión de riesgos para operar en el exterior. Esto afecta ya que un cliente puede preguntar por las dimensiones ambientales y sociales. El valor económico existe, pero queda dentro del país.')+
+ '<h4 class="sub">Social</h4>'+
+ P('La empresa tiene una política de igualdad de género, entre el 26 % y el 40 % de su planta son mujeres. En cargos directivos no se demuestra la igualdad. Que la empresa haya podido responder por rangos también indica que lleva algún registro de esos datos, y eso es un punto de partida para medir.')+
+ P('Un punto negativo es que no tiene responsabilidad social empresarial, no hay criterios sostenibles para escoger o evaluar proveedores y la empresa no está adherida al Pacto Mundial ni a ninguna iniciativa parecida. Es decir, el impacto social que hoy se puede mostrar se limita a la nómina.')+
+ P('La dimensión de talento humano (37 %) completa la dimensión. Entre el 51 % y el 75 % del personal maneja una segunda lengua y en cargos administrativos se evidencia de 4 a 7 años de experiencia internacional, lo cual es bueno. Pero solo entre el 1 % y el 25 % de los empleados tiene experiencia internacional directa, y no existen planes de formación en el exterior, incentivos, rotación ni una política para atraer y retener talento. Desde la triple cuenta esto también es un tema social: la empresa quiere crecer afuera, pero todavía no ha definido cómo va a desarrollar a la gente que la va a llevar allá.')+
+ '<h4 class="sub">Ambiental</h4>'+
+ P('La empresa no mide su huella de carbono, y en la pregunta sobre emisiones frente al sector respondieron “no se realiza medición”. Tampoco presenta su servicio con un enfoque de sostenibilidad, ni tiene metas ODS o reportes bajo estándares como GRI, SASB o TCFD.')+
+ P('Hay que decir que en una empresa de servicios el impacto ambiental no suele ser el más grande. Lo que pesa es el consumo eléctrico de oficinas y servidores, los viajes de trabajo y el transporte de los bienes que importa desde entre uno y tres países. El problema no es tanto el tamaño de la huella sino que nadie la ha calculado. Si el cliente extranjero le manda un cuestionario de proveedores, la empresa no tendría ninguna cifra para responder.')+
+ P('Hoy Sostenibilidad le aporta a la empresa 1,43 de esos 10 puntos posibles, así que es la dimensión que más resta en proporción a lo que podría dar. Si Sostenibilidad llegara al 60 % (nivel Maduro), el puntaje total pasaría de 54,7 % a 59,3 %; si llegara al 80 %, el total subiría a 61,3 % y la empresa cambiaría de nivel general. Ninguna otra dimensión le da tanto margen de mejora con tan poca inversión.')+
+ '<h4 class="sub">Cruce de las tres cuentas</h4><div class="tw"><table class="vr" style="min-width:760px"><thead><tr><th>Cuenta</th><th>Lo que ya tiene</th><th>Lo que falta</th><th>Dimensiones DPI+ relacionadas</th></tr></thead><tbody>'+
+ C.map(function(r){return '<tr><td><b>'+r[0]+'</b></td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+r[3]+'</td></tr>'}).join('')+'</tbody></table></div>'+
+ P('Al cruzar las tres cuentas vimos un patrón que se repite en otras partes del diagnóstico. La empresa hace bastantes cosas bien, pero de manera informal: tiene KPIs y un DOFA internacional, gana plata y tiene una política de género, pero no tiene auditoría, ni reporte, ni medición ambiental, ni compliance. En los mercados a los que quiere llegar esas evidencias pesan cada vez más, sobre todo en licitaciones internacionales (en las que todavía no ha participado) y en la relación con franquiciados y clientes corporativos, que suelen pedir información ESG antes de firmar.')
+};
+var tl=document.getElementById('tl');
+tl.innerHTML=E.map(function(e,i){
+ var body='';
+ if(e[3]&&PB[e[3]])body=PB[e[3]]();
+ else body='<span class="chip">Resultados por publicar</span><p style="margin:0;color:var(--mut)">Contenido previsto:</p><ul>'+e[2].map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>';
+ return '<article class="card rv"><span class="n">'+(i+1)+'</span><h3>'+e[0]+'</h3><p>'+e[1]+'</p><button class="res" aria-expanded="false" aria-controls="p'+i+'">Consultar resultados</button><div class="panel" id="p'+i+'"><div><div class="in">'+body+'</div></div></div></article>'}).join('');
+tl.addEventListener('click',function(ev){var b=ev.target.closest('.res');if(!b)return;var p=document.getElementById(b.getAttribute('aria-controls')),o=!p.classList.contains('open');p.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.textContent=o?'Ocultar resultados':'Consultar resultados'});
+
+var bg=document.getElementById('burger'),nv=document.getElementById('nav');
+bg.addEventListener('click',function(){var o=nv.classList.toggle('open');bg.setAttribute('aria-expanded',o)});
+nv.addEventListener('click',function(e){if(e.target.tagName==='A'){nv.classList.remove('open');bg.setAttribute('aria-expanded','false')}});
+var rv=document.querySelectorAll('.rv');
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in-view');io.unobserve(x.target)}})},{threshold:.12});rv.forEach(function(r){io.observe(r)})}else rv.forEach(function(r){r.classList.add('in-view')});
+var ls=[].slice.call(document.querySelectorAll('nav a'));
+window.addEventListener('scroll',function(){var y=scrollY+120,c=ls[0];ls.forEach(function(a){var s=document.querySelector(a.getAttribute('href'));if(s&&s.offsetTop<=y)c=a});ls.forEach(function(a){a.classList.toggle('on',a===c)})},{passive:true});
+</script>
+</body>
+</html>
