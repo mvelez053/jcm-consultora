@@ -148,7 +148,7 @@ body.lock{overflow:hidden}
 .c5 b,.c4 b{background:rgba(127,179,230,.4)}.c3 b{background:var(--line)}.c2 b,.c1 b{background:rgba(201,162,75,.45)}
 .hp{background:var(--bg);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:6px;padding:1rem 1.2rem;margin:.7rem 0;font-size:.9rem;color:var(--mut)}
 .hp h4{margin:0 0 .3rem;color:var(--text);font-size:1rem}
-#hof svg{width:100%;height:auto;display:block;margin-top:1rem}
+.hofimg{width:100%;height:auto;display:block;margin-top:1rem;background:#fff;border-radius:6px;padding:.5rem}
 .lg{display:flex;flex-wrap:wrap;gap:1rem;margin-top:.8rem;font-size:.88rem}.lg span::before{content:"";display:inline-block;width:.8rem;height:.8rem;border-radius:2px;margin-right:.35rem;vertical-align:-1px;background:var(--k)}
 
 </style>
@@ -210,7 +210,7 @@ body.lock{overflow:hidden}
 </div></section>
 <section class="alt" id="entornos"><div class="wrap">
 <div class="head rv"><h2>Análisis de entornos comparado</h2><div class="rule"></div><p>España, Chile y México frente a Colombia: la gráfica cultural, el diseño metodológico (F-04) y la tabla maestra con los 15 indicadores (TA3-B).</p></div>
-<div class="box rv" style="border-left-color:var(--sky)"><h3>Dimensiones culturales de Hofstede</h3><p>Puntajes de 0 a 100 de Chile, Colombia, México y España. Para el análisis se usaron distancia al poder, individualismo y evitación de la incertidumbre (marcadas con ●).</p><div id="hof"></div><p style="font-size:.82rem;margin-top:.4rem">Fuente: The Culture Factor Group (antes Hofstede Insights), Country Comparison Tool. Consulta: 16 nov. 2026.</p></div>
+<div class="box rv" style="border-left-color:var(--sky)"><h3>Dimensiones culturales de Hofstede</h3><p>Puntajes de 0 a 100 de Chile, Colombia, México y España. Para el análisis se usaron distancia al poder, individualismo y evitación de la incertidumbre.</p><div id="hof"></div><p style="font-size:.82rem;margin-top:.4rem">Fuente: The Culture Factor Group (antes Hofstede Insights), Country Comparison Tool. Consulta: 16 nov. 2026.</p></div>
 <h3 class="sub rv" style="font-size:1.8rem;margin-top:2.5rem">F-04 · Diseño metodológico previo a la recolección</h3>
 <p class="hd rv" id="f04m"></p>
 <div class="tw rv"><table class="vr mt" id="f04" style="min-width:1100px"></table></div>
@@ -293,7 +293,7 @@ document.getElementById('vx').addEventListener('click',vclose);
 vz.addEventListener('click',function(){var z=vb.classList.toggle('z');vz.textContent=z?'Ajustar':'Ampliar';vz.setAttribute('aria-pressed',z)});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!vw.hidden)vclose()});
 document.addEventListener('click',function(ev){var b=ev.target.closest('[data-v]');if(b)vopen(b.dataset.v,b)});
-function btn(k){var f=FI[k][3],pdf=f.replace(/\.[a-z]+$/,'.pdf'),ext=f.split('.').pop();return '<div class="files"><button class="dl" data-v="'+k+'">Ver documento</button><a class="dl" href="docs/'+f+'" download>Descargar '+ext+'</a>'+(ext==='pdf'?'':'<a class="dl" href="docs/'+pdf+'" download>Descargar PDF</a>')+'</div>'}
+function btn(k){var f=FI[k][3],pdf=f.replace(/\.[a-z]+$/,'.pdf'),ext=f.split('.').pop();return '<div class="files"><a class="dl" href="docs/'+(ext==='pdf'?f:pdf)+'" target="_blank" rel="noopener">Ver documento</a><a class="dl" href="docs/'+f+'" download>Descargar '+ext+'</a>'+(ext==='pdf'?'':'<a class="dl" href="docs/'+pdf+'" download>Descargar PDF</a>')+'</div>'}
 document.getElementById('docs').innerHTML=Object.keys(FI).map(function(k){return '<div class="doc"><h3>'+FI[k][0]+'</h3><p>'+FI[k][1]+'</p><small>'+FI[k][2]+' · '+PG[k].length+(PG[k].length>1?' páginas':' página')+'</small>'+btn(k)+'</div>'}).join('');
 if(window.claude&&typeof window.claude.use==='function'){window.claude.use('downloads').then(function(d){if(d)[].forEach.call(document.querySelectorAll('.orig'),function(x){x.hidden=false})}).catch(function(){})}
 document.addEventListener('click',function(ev){var b=ev.target.closest('[data-f]');if(!b)return;var k=b.dataset.f,st=document.getElementById('st');
@@ -416,7 +416,7 @@ var TD={"F": [["1. Distancia al poder (Hofstede): puntaje de 0 a 100", "Hofstede
   d[1].forEach(function(v,j){var h=v/100*(base-top),x=x0+j*(bw+3);g+='<rect x="'+x+'" y="'+(base-h)+'" width="'+bw+'" height="'+h+'" fill="'+K[j][1]+'"><title>'+K[j][0]+': '+v+'</title></rect><text x="'+(x+bw/2)+'" y="'+(base-h-6)+'" text-anchor="middle" font-size="13" fill="currentColor" fill-opacity=".75">'+v+'</text>'});
   var words=(d[2]?'● ':'')+d[0],lines=[],cur='';words.split(' ').forEach(function(w){if((cur+' '+w).trim().length>16){lines.push(cur.trim());cur=w}else cur+=' '+w});lines.push(cur.trim());
   lines.forEach(function(l,k){g+='<text x="'+(i*gw+gw/2)+'" y="'+(base+24+k*17)+'" text-anchor="middle" font-size="14" fill="currentColor"'+(d[2]?' font-weight="700"':'')+'>'+esc(l)+'</text>'})});
- document.getElementById('hof').innerHTML='<div class="lg">'+K.map(function(k){return '<span style="--k:'+k[1]+'">'+k[0]+'</span>'}).join('')+'</div><svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Gráfica de barras de las seis dimensiones de Hofstede para Chile, Colombia, México y España">'+g+'</svg>';
+ document.getElementById('hof').innerHTML='<div class="lg">'+K.map(function(k){return '<span style="--k:'+k[1]+'">'+k[0]+'</span>'}).join('')+'</div><img class="hofimg" src="pages/hofstede-grafica.jpg" width="1600" height="729" alt="Gráfica de las seis dimensiones de Hofstede para Chile, Colombia, México y España">';
  var ENT=[['Cultural',0],['Político-legal',3],['Macroeconómico',6],['Logístico',9],['Normativo',12]];
  var entOf=function(i){var r=null;ENT.forEach(function(e){if(e[1]===i)r=e[0]});return r};
  var M=TD.M;
