@@ -316,7 +316,7 @@ details.old{margin-top:1.2rem}details.old summary{cursor:pointer;color:var(--mut
 <div class="cards" id="c-ta4"></div>
 </div></section>
 <section id="documentos"><div class="wrap">
-<div class="head rv"><span class="eyebrow">Documentos</span><h2>Documentos del proyecto</h2><div class="rule"></div><p>Archivos entregados, ordenados por entrega. "Ver documento" abre el PDF en una pestaña nueva.</p></div>
+<div class="head rv"><span class="eyebrow">Documentos</span><h2>Documentos del proyecto</h2><div class="rule"></div><p>Todos los archivos del proyecto, ordenados por entrega (TA1 a TA4). "Ver documento" abre el PDF en una pestaña nueva; "Descargar" baja el Excel o Word original.</p></div>
 <div id="docs" class="rv"></div>
 </div></section>
 <section class="alt" id="referencias"><div class="wrap">
@@ -346,13 +346,16 @@ dpi:['TA1','Diagnóstico DPI+','Cuestionario, ponderación y resultados por dime
 bmc:['TA1','Modelo de negocio internacional (BMC)','Los nueve bloques del modelo de negocio de Seconecta S.A.S.','Excel · 13 KB','BMC_Internacional_Seconecta.xlsx','old'],
 dofa:['TA1','DOFA de internacionalización','Matriz DOFA con estrategias cruzadas y fuentes de cada factor.','Excel · 9 KB','DOFA_Seconecta_Panama.xlsx','old'],
 vrio:['TA1','Matriz VRIO','Nueve recursos y capacidades evaluados con evidencia del DPI+.','Excel · 9 KB','VRIO_Seconecta_Panama.xlsx','old'],
-brechas:['TA1','Matriz de brechas (F-03)','Brechas del DPI+ por dimensión, con acciones, plazos, recursos e impacto.','Excel · 12 KB','Matriz_Brechas_Seconecta.xlsx','old']};
+brechas:['TA1','Matriz de brechas (F-03)','Brechas del DPI+ por dimensión, con acciones, plazos, recursos e impacto.','Excel · 12 KB','Matriz_Brechas_Seconecta.xlsx','old'],
+ta2:['TA2','Pre-viabilidad y preselección de 3 mercados','Clasificación arancelaria, importadores del mundo, universo de 12 destinos, criterios, matriz, filtros, descartes e hipótesis (12 hojas).','Excel · 62 KB','TA2_Preseleccion_Mercados_Seconecta.xlsx',''],
+f04:['TA3','Diseño metodológico (F-04)','Los 15 indicadores con fuente, período, justificación, fuente descartada y criterio de elección.','Excel · 13 KB','TA3_F04_Diseno_Metodologico_Seconecta.xlsx',''],
+tm:['TA3','Tabla maestra comparativa (TA3-B)','15 indicadores × 3 países con dato, fuente, calificación de 1 a 5, análisis y contrastación de hipótesis.','Excel · 18 KB','TA3_Tabla_Maestra_Seconecta.xlsx',''],
+wsm:['TA4','Matriz WSM y selección del mercado','Matriz de suma ponderada, anclas y trazabilidad, justificación del método y análisis de sensibilidad (4 hojas).','Excel · 23 KB','TA4_WSM_Seleccion_Mercado_Seconecta.xlsx','']};
 function links(k){var f=FI[k][4],ext=f.split('.').pop(),pdf=f.replace(/\.[a-z]+$/,'.pdf');return '<div class="files"><a class="dl" href="docs/'+pdf+'" target="_blank" rel="noopener">Ver documento</a><a class="dl" href="docs/'+f+'" download>Descargar '+ext+'</a>'+(ext==='pdf'?'':'<a class="dl" href="docs/'+pdf+'" download>Descargar PDF</a>')+'</div>'}
 var OLD='Versión entregada en TA1 con Panamá como mercado de referencia. El contenido actualizado a Chile está en la sección TA1 de esta página.';
 function docbtn(k){return '<div style="margin-top:1rem">'+(FI[k][5]==='old'?'<p class="hd" style="margin:0 0 .3rem">Archivo original: '+OLD+'</p>':'')+links(k)+'</div>'}
-var DG=[['TA1 · Planeación y diagnóstico interno',['acta','acuerdo','dpi','bmc','dofa','vrio','brechas']]];
-document.getElementById('docs').innerHTML=DG.map(function(g){return '<div class="dg"><h3 class="gt">'+g[0]+'</h3><div class="docs">'+g[1].map(function(k){return '<div class="doc"><h3>'+FI[k][1]+'</h3><p>'+FI[k][2]+'</p><small>'+FI[k][3]+'</small>'+(FI[k][5]==='old'?'<span class="nt">'+OLD+'</span>':'')+links(k)+'</div>'}).join('')+'</div></div>'}).join('')+
- '<div class="dg"><h3 class="gt">TA2, TA3 y TA4</h3><div class="box"><p>El contenido completo de estas entregas está publicado directamente en la página: <a href="#ta2">TA2</a> (clasificación, universo de 12 destinos, criterios, matriz, filtros, descartes e hipótesis), <a href="#ta3">TA3</a> (F-04, gráfica cultural, tabla maestra y contraste de hipótesis) y <a href="#ta4">TA4</a> (matriz WSM, método, sensibilidad y recomendación).</p></div></div>';
+var DG=[['TA1 · Planeación y diagnóstico interno',['acta','acuerdo','dpi','bmc','dofa','vrio','brechas']],['TA2 · Pre-viabilidad y preselección de 3 mercados',['ta2']],['TA3 · Análisis de entornos comparado',['f04','tm']],['TA4 · Selección del mercado idóneo',['wsm']]];
+document.getElementById('docs').innerHTML=DG.map(function(g){return '<div class="dg"><h3 class="gt">'+g[0]+'</h3><div class="docs">'+g[1].map(function(k){return '<div class="doc"><h3>'+FI[k][1]+'</h3><p>'+FI[k][2]+'</p><small>'+FI[k][3]+'</small>'+(FI[k][5]==='old'?'<span class="nt">'+OLD+'</span>':'')+links(k)+'</div>'}).join('')+'</div></div>'}).join('');
 var DPI=[['Madurez digital',89],['Inteligencia de mercados',75],['Potencial del producto',69],['Direccionamiento estratégico',67],['Tecnología e innovación',61],['Capacidad financiera',55],['Marco legal y PI',42],['Talento humano',37],['Sostenibilidad',14]];
 function bars(){return DPI.map(function(d){return '<div class="bar'+(d[1]<35?' lo':'')+'"><span>'+d[0]+'</span><i style="--w:'+d[1]+'%"></i><b>'+d[1]+'%</b></div>'}).join('')}
 function ul(a){return '<ul>'+a.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'}
