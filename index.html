@@ -316,7 +316,7 @@ details.old{margin-top:1.2rem}details.old summary{cursor:pointer;color:var(--mut
 <div class="cards" id="c-ta4"></div>
 </div></section>
 <section id="documentos"><div class="wrap">
-<div class="head rv"><span class="eyebrow">Documentos</span><h2>Documentos del proyecto</h2><div class="rule"></div><p>Todos los archivos del proyecto, ordenados por entrega (TA1 a TA4). "Ver documento" abre el PDF en una pestaña nueva; "Descargar" baja el Excel o Word original.</p></div>
+<div class="head rv"><span class="eyebrow">Documentos</span><h2>Documentos del proyecto</h2><div class="rule"></div><p>Todos los archivos del proyecto. "Ver documento" abre el PDF en una pestaña nueva; "Descargar" baja el Excel o Word original.</p></div>
 <div id="docs" class="rv"></div>
 </div></section>
 <section class="alt" id="referencias"><div class="wrap">
@@ -355,7 +355,7 @@ function links(k){var f=FI[k][4],ext=f.split('.').pop(),pdf=f.replace(/\.[a-z]+$
 var OLD='Versión entregada en TA1 con Panamá como mercado de referencia. El contenido actualizado a Chile está en la sección TA1 de esta página.';
 function docbtn(k){return '<div style="margin-top:1rem">'+(FI[k][5]==='old'?'<p class="hd" style="margin:0 0 .3rem">Archivo original: '+OLD+'</p>':'')+links(k)+'</div>'}
 var DG=[['TA1 · Planeación y diagnóstico interno',['acta','acuerdo','dpi','bmc','dofa','vrio','brechas']],['TA2 · Pre-viabilidad y preselección de 3 mercados',['ta2']],['TA3 · Análisis de entornos comparado',['f04','tm']],['TA4 · Selección del mercado idóneo',['wsm']]];
-document.getElementById('docs').innerHTML='<nav class="toc" aria-label="Documentos por entrega">'+DG.map(function(g,i){return '<a href="#dg-'+i+'">'+g[0].split(' · ')[0]+' · '+g[1].length+(g[1].length>1?' archivos':' archivo')+'</a>'}).join('')+'</nav>'+DG.map(function(g,i){return '<div class="dg" id="dg-'+i+'"><h3 class="gt">'+g[0]+'</h3><div class="docs">'+g[1].map(function(k){return '<div class="doc"><h3>'+FI[k][1]+'</h3><p>'+FI[k][2]+'</p><small>'+FI[k][3]+'</small>'+(FI[k][5]==='old'?'<span class="nt">'+OLD+'</span>':'')+links(k)+'</div>'}).join('')+'</div></div>'}).join('');
+document.getElementById('docs').innerHTML='<div class="docs">'+['acta','acuerdo','dpi','bmc','dofa','vrio','brechas','ta2','f04','tm','wsm'].map(function(k){return '<div class="doc"><h3>'+FI[k][1]+'</h3><p>'+FI[k][2]+'</p><small>'+FI[k][3]+'</small>'+(FI[k][5]==='old'?'<span class="nt">'+OLD+'</span>':'')+links(k)+'</div>'}).join('')+'</div>';
 var DPI=[['Madurez digital',89],['Inteligencia de mercados',75],['Potencial del producto',69],['Direccionamiento estratégico',67],['Tecnología e innovación',61],['Capacidad financiera',55],['Marco legal y PI',42],['Talento humano',37],['Sostenibilidad',14]];
 function bars(){return DPI.map(function(d){return '<div class="bar'+(d[1]<35?' lo':'')+'"><span>'+d[0]+'</span><i style="--w:'+d[1]+'%"></i><b>'+d[1]+'%</b></div>'}).join('')}
 function ul(a){return '<ul>'+a.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>'}
